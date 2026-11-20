@@ -1,0 +1,44 @@
+{
+    "scenario": "ade_stores_disruption_suite",
+    "scenario_file": "02_timeouts.json",
+    "category": "timeout",
+    "expected_assertion": "Latency breaches timeout SLA; opens/escalates incident; flags provisional_in_flight exposure.",
+    "merchant": {
+      "business_id": "biz_ade_stores_001",
+      "name": "Ade Stores",
+      "currency": "NGN",
+      "timezone": "Africa/Lagos"
+    },
+    "events": [
+      {
+        "event_id": "evt_003",
+        "idempotency_key": "idem_ade_1003_auth",
+        "occurred_at": "2026-11-19T09:10:00.000Z",
+        "provider": "paystack_ng",
+        "event_type": "txn.timeout",
+        "category": "timeout",
+        "transaction_id": "txn_ade_1003",
+        "amount": 82000.00,
+        "currency": "NGN",
+        "latency_ms": 15000,
+        "status": "ambiguous_timeout",
+        "error_code": "GATEWAY_TIMEOUT",
+        "exposure_type": "provisional_in_flight"
+      },
+      {
+        "event_id": "evt_004",
+        "idempotency_key": "idem_ade_1004_auth",
+        "occurred_at": "2026-11-19T09:11:12.300Z",
+        "provider": "paystack_ng",
+        "event_type": "txn.timeout",
+        "category": "timeout",
+        "transaction_id": "txn_ade_1004",
+        "amount": 64000.00,
+        "currency": "NGN",
+        "latency_ms": 15000,
+        "status": "ambiguous_timeout",
+        "error_code": "GATEWAY_TIMEOUT",
+        "exposure_type": "provisional_in_flight"
+      }
+    ]
+  }

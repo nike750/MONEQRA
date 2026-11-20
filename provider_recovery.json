@@ -1,0 +1,44 @@
+{
+    "scenario": "ade_stores_disruption_suite",
+    "scenario_file": "07_provider_recovery.json",
+    "category": "provider_recovery",
+    "expected_assertion": "Transitions incident toward resolved after recovery signal + healthy post-recovery transactions.",
+    "merchant": {
+      "business_id": "biz_ade_stores_001",
+      "name": "Ade Stores",
+      "currency": "NGN",
+      "timezone": "Africa/Lagos"
+    },
+    "events": [
+      {
+        "event_id": "evt_010",
+        "idempotency_key": "idem_ade_rec_093500",
+        "occurred_at": "2026-11-19T09:35:00.000Z",
+        "provider": "paystack_ng",
+        "event_type": "provider.recovered",
+        "category": "provider_recovery",
+        "transaction_id": null,
+        "amount": 0.00,
+        "currency": "NGN",
+        "latency_ms": 260,
+        "status": "healthy",
+        "error_code": null,
+        "exposure_type": "recovery_signal"
+      },
+      {
+        "event_id": "evt_011",
+        "idempotency_key": "idem_ade_1007_cap",
+        "occurred_at": "2026-11-19T09:36:15.000Z",
+        "provider": "paystack_ng",
+        "event_type": "txn.captured",
+        "category": "provider_recovery",
+        "transaction_id": "txn_ade_1007",
+        "amount": 73000.00,
+        "currency": "NGN",
+        "latency_ms": 250,
+        "status": "captured",
+        "error_code": null,
+        "exposure_type": "none"
+      }
+    ]
+  }

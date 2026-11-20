@@ -1,0 +1,44 @@
+{
+    "scenario": "ade_stores_disruption_suite",
+    "scenario_file": "01_normal_transactions.json",
+    "category": "normal",
+    "expected_assertion": "Baseline healthy throughput; zero active incident; zero disruption exposure.",
+    "merchant": {
+      "business_id": "biz_ade_stores_001",
+      "name": "Ade Stores",
+      "currency": "NGN",
+      "timezone": "Africa/Lagos"
+    },
+    "events": [
+      {
+        "event_id": "evt_001",
+        "idempotency_key": "idem_ade_1001_auth",
+        "occurred_at": "2026-11-19T09:00:10.120Z",
+        "provider": "paystack_ng",
+        "event_type": "txn.authorized",
+        "category": "normal",
+        "transaction_id": "txn_ade_1001",
+        "amount": 45000.00,
+        "currency": "NGN",
+        "latency_ms": 240,
+        "status": "authorized",
+        "error_code": null,
+        "exposure_type": "none"
+      },
+      {
+        "event_id": "evt_002",
+        "idempotency_key": "idem_ade_1002_cap",
+        "occurred_at": "2026-11-19T09:02:45.500Z",
+        "provider": "paystack_ng",
+        "event_type": "txn.captured",
+        "category": "normal",
+        "transaction_id": "txn_ade_1002",
+        "amount": 128500.00,
+        "currency": "NGN",
+        "latency_ms": 315,
+        "status": "captured",
+        "error_code": null,
+        "exposure_type": "none"
+      }
+    ]
+  }

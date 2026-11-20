@@ -1,0 +1,35 @@
+{
+    "scenario": "ade_stores_disruption_suite",
+    "scenario_file": "06_settlement_failure.json",
+    "category": "settlement_failure",
+    "expected_assertion": "Links settlement_batch_id and affected_transaction_ids; tracks unsettled_treasury_exposure separately from checkout failures.",
+    "merchant": {
+      "business_id": "biz_ade_stores_001",
+      "name": "Ade Stores",
+      "currency": "NGN",
+      "timezone": "Africa/Lagos"
+    },
+    "events": [
+      {
+        "event_id": "evt_009",
+        "idempotency_key": "idem_ade_settle_20261119_01",
+        "occurred_at": "2026-11-19T09:25:00.000Z",
+        "provider": "paystack_ng",
+        "event_type": "settlement.failed",
+        "category": "settlement_failure",
+        "transaction_id": null,
+        "settlement_batch_id": "stl_ade_20261119_am",
+        "amount": 940000.00,
+        "currency": "NGN",
+        "latency_ms": null,
+        "status": "settlement_failed",
+        "error_code": "SETTLEMENT_BANK_REJECT",
+        "affected_transaction_ids": [
+          "txn_ade_1001",
+          "txn_ade_1002",
+          "txn_ade_1003"
+        ],
+        "exposure_type": "unsettled_treasury_exposure"
+      }
+    ]
+  }

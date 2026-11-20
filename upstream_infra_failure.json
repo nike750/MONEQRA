@@ -1,0 +1,46 @@
+{
+    "scenario": "ade_stores_disruption_suite",
+    "scenario_file": "05_upstream_infra_failure.json",
+    "category": "upstream_infrastructure_failure",
+    "expected_assertion": "Tracks upstream failure code (502 / 503) and upstream_component; attributes direct_failed_gmv exposure.",
+    "merchant": {
+      "business_id": "biz_ade_stores_001",
+      "name": "Ade Stores",
+      "currency": "NGN",
+      "timezone": "Africa/Lagos"
+    },
+    "events": [
+      {
+        "event_id": "evt_007",
+        "idempotency_key": "idem_ade_1005_up",
+        "occurred_at": "2026-11-19T09:20:00.000Z",
+        "provider": "paystack_ng",
+        "event_type": "txn.failed_upstream",
+        "category": "upstream_infrastructure_failure",
+        "transaction_id": "txn_ade_1005",
+        "amount": 215000.00,
+        "currency": "NGN",
+        "latency_ms": 8400,
+        "status": "failed",
+        "error_code": "UPSTREAM_SWITCH_503",
+        "upstream_component": "nip_switch_gateway",
+        "exposure_type": "direct_failed_gmv"
+      },
+      {
+        "event_id": "evt_008",
+        "idempotency_key": "idem_ade_1006_up",
+        "occurred_at": "2026-11-19T09:20:40.000Z",
+        "provider": "paystack_ng",
+        "event_type": "infra.upstream_outage",
+        "category": "upstream_infrastructure_failure",
+        "transaction_id": null,
+        "amount": 0.00,
+        "currency": "NGN",
+        "latency_ms": null,
+        "status": "degraded_outage",
+        "error_code": "UPSTREAM_502_BAD_GATEWAY",
+        "upstream_component": "card_acquirer_link",
+        "exposure_type": "incident_signal"
+      }
+    ]
+  }

@@ -1,0 +1,30 @@
+{
+    "scenario": "ade_stores_disruption_suite",
+    "scenario_file": "03_delayed_confirmations.json",
+    "category": "delayed_confirmation",
+    "expected_assertion": "Correlates via transaction_id / reconciles_transaction_id; transitions provisional exposure to resolved/captured.",
+    "merchant": {
+      "business_id": "biz_ade_stores_001",
+      "name": "Ade Stores",
+      "currency": "NGN",
+      "timezone": "Africa/Lagos"
+    },
+    "events": [
+      {
+        "event_id": "evt_005",
+        "idempotency_key": "idem_ade_1003_auth",
+        "occurred_at": "2026-11-19T09:14:28.850Z",
+        "provider": "paystack_ng",
+        "event_type": "txn.confirmed_delayed",
+        "category": "delayed_confirmation",
+        "transaction_id": "txn_ade_1003",
+        "amount": 82000.00,
+        "currency": "NGN",
+        "latency_ms": 268850,
+        "status": "captured",
+        "error_code": null,
+        "exposure_type": "resolved_captured",
+        "reconciles_transaction_id": "txn_ade_1003"
+      }
+    ]
+  }
